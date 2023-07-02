@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>joining chama</title>
+</head>
+<body> 
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">Become a Member of {{name}}</h1>
+        <form action="/add_member_to_chama" method="POST">
+            <div class="mb-3">
+            <label for="name" class="form-label">Fullname</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="Help">
+            <div id="Help" class="form-text">input your id name</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="member_id" class="form-label">member_id</label>
+                <input type="text" class="form-control" name="member_id" id="member_id" value="{{id}}" readonly>
+            </div>
+            
+            <div class="mb-3 visually-hidden">
+                <label for="chama_name" class="form-label">chama name</label>
+                <input type="text" class="form-control" name="chama_name" id="chama_name" value="{{name}}" readonly>
+            </div> 
+
+            <button type="submit" class="btn btn-primary">Become a member</button>
+        </form>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>managers page</title>
+</head>
+<body>
+    {% for result in result %}
+    {% include "manage_nav.html" %}
+    {% include  "man_banner.html" %}
+    {% endfor %}
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">{{user_name}} the manager</h1>
+        {% if chamas %}
+            <div class="row" id="doubles" style="margin-bottom: 16px;">
+                {% for chama in chamas %}
+                    <div class="col-md-4" style="margin-bottom: 16px;">
+                        <div class="h-100 p-5 text-bg-dark rounded-3">
+                            <h2>{{ chama.chama_name }} <b>|</b> {{chama.manager}} </h2>
+                            <p><b>Members:</b> updated daily <br />
+                                <b>About chama:</b><br /> {{ chama.summary }} </p>
+                                <button class="btn btn-outline-dark" type="button"><a href="/view?name={{chama.chama_name}}&manager={{user_name}}">View</a></button>
+                                
+                                <div class="position-relative">
+                                    <div class="position-absolute bottom-0 end-0">
+                                        <button class="btn btn-outline-dark" type="button"><a href="/edit_chama?chama_name={{chama.chama_name}}&manager={{user_name}}">Edit</a></button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <p>Dear {{user_name}},
+
+                We noticed that you haven't created a Chama yet. We encourage you to take the lead 
+                and create a Chama to help others grow financially. By creating a Chama, you can foster 
+                a supportive community where members can save together and achieve their shared goals. 
+                Your initiative can be instrumental in empowering others to take control of their 
+                finances and experience the benefits of collective saving. Be the catalyst for positive   
+                change and start a Chama today. Together, we can make a significant impact on everyone's 
+                financial well-being.
+                <br /><br />
+                Best regards,<br />
+                chamaZetu Team
+            </p>
+        </div>
+            
+        {% endif %}
+
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-12" style="background-color: rgb(58, 7, 7);">
+                {% include "create_chama.html" %}
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+</html>

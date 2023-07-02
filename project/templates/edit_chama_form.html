@@ -1,0 +1,32 @@
+
+        <h1 class="text-center mt-2 mb-4">Edit {{chama_name}}</h1>
+        <p class="alert alert-info">Make sure all fields are filled</p>
+        <form action="/update_chama" method="POST">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Chama name</span>
+                <input type="text" class="form-control" name="chama_name" id="chama_name" placeholder="unique name for your group" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Description</span>
+                <textarea class="form-control" placeholder="Describe your group" name="description" id="floatingTextarea" required></textarea>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Requirements</span>
+                <textarea class="form-control" placeholder="list requirements(one per line)" name="requirements" id="floatingTextarea2" required></textarea>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Summary</span>
+                <textarea class="form-control" aria-label="summary" placeholder="the statement that will be displayed in chama page" id="summary" name="summary" required></textarea>
+            </div>  
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">chamaLeader</span>
+                <input type="text" class="form-control" name="username" id="username" value="{{manager}}" readonly>
+            </div>           
+
+            <button type="submit" class="btn btn-primary">Update chama</button>
+        </form>
+   

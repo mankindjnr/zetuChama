@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'bootstrap.html' %}
+    <title>landing page</title>
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">chamaZetu</h1>
+                <div class="row" style="margin-bottom: 16px">
+                    <div class="col-md-12">
+                        <div class="h-100 p-5 text-bg-dark rounded-3" style="margin-bottom: 16px">
+                            <p>
+                                Welcome to our revolutionary savings application! Our platform is designed to empower 
+                                individuals and groups to efficiently manage their savings together. With our app, 
+                                you can easily track and monitor the contributions made by all members, ensuring 
+                                transparency and accountability within your savings group. Stay on top of your 
+                                financial goals with automated notifications, reminding you two days prior to
+                                your scheduled saving day. Our application also provides managers with the 
+                                tools to create and oversee group contributions, making financial management 
+                                a breeze. Take control of your savings journey and join us today!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 16px;">
+                    <div class="col-md-6" style="margin-bottom: 16px;">
+                        <div class="h-100 p-5 text-bg-dark rounded-3">
+                            <h2>Members</h2>
+                            <p>
+                            we believe in fostering a sense of community, collaboration, and shared goals. 
+                            As a member, you'll have the opportunity to explore and join various Chamas 
+                            created by our dedicated managers, each with its own unique vision and purpose.
+                             We're excited to share this platform with you, where you can connect with like
+                             -minded individuals and embark on a journey towards your financial aspirations
+                              together. When you browse through our Chamas, you'll find detailed descriptions 
+                              and insightful goals, allowing you to understand the essence and direction of each 
+                              group.
+                            </p>
+                            <button type="button" class="btn btn-outline-info"><a href="/auth/signup">Become a Member</a></button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="margin-bottom: 16px;">
+                        <div class="h-100 p-5 text-bg-dark rounded-3">
+                            <h2>Managers</h2>
+                            <p>
+                                we understand the importance of empowering managers to efficiently oversee and nurture their Chamas. 
+                                We provide a user-friendly platform that simplifies the management process, allowing our dedicated managers 
+                                to create and oversee multiple Chamas effortlessly. Our managers play a vital role in shaping the Chama experience 
+                                for our members. They have the flexibility to establish specific requirements for their groups, ensuring that each 
+                                Chama aligns with its intended purpose and vision.
+                            </p>
+                            <button type="button" class="btn btn-outline-info"><a href="/auth/manager/signup">Become a Manager</a></button>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>

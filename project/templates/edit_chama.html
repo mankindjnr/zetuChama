@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>editing {{chama_name}}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-md-6" style="margin-bottom: 16px;">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2><b>CURRENT</b></h2>
+                    <p>
+                        <b>{{chama_name}} |</b> {{manager}} <br />
+                            <b>Description</b><br />
+                            {% for line in chama.description.split(".") %} <br />{{line}}. {% endfor %} <br />
+                            <b>Requirements</b><br />
+                            {% for line in chama.requirements.split(".") %} <br />{{line}}. {% endfor %} <br />
+                            <b>Summary</b><br />
+                            {% for line in chama.summary.split(".") %} <br />{{line}}. {% endfor %} <br />
+
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 16px;">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    {% include "edit_chama_form.html" %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% for result in result %}
+        {% include 'bootstrap.html' %}
+        <title> {{result.title}}</title>
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        {% include 'banner.html' %}
+        <div class="container">
+            <h1 class="text-center mt-2 mb-4">manager {{result.title }}</h1>
+
+            <h3 class = "mb-2">{{ result.title }}</h3>
+            <p class="lead mt-0">{{ result.about }}</p>
+            <h4>Responsibilities</h4>
+            <ul class="lead">
+                {% for responsibility in result.responsibilities.split("\n") %}
+                <li>{{ responsibility }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Requirements</h4>
+            <ul class="lead">
+                {% for requirement in result.requirements.split("\n") %}
+                <li>{{ requirement }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+        {% include 'footer.html' %}
+        </div>
+    </body>
+</html>

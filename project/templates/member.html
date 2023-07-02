@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>member page</title>
+</head>
+<body>
+    {% for result in result %}
+    {% include "member-nav.html" %}
+    {% include  "mem_banner.html" %}
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">welcome back {{result.name}}</h1>{% endfor %}
+        {% if mychamas %}
+            <div class="row" style="margin-bottom: 16px;">
+                {% for chama in mychamas %}
+                <div class="col-md-6" style="margin-bottom: 16px;">
+                    <div class="h-100 p-5 text-bg-dark rounded-3" style="max-height: 300px;">
+                        <h2>{{chama.chama_name}} <b>|</b> {{chama.manager}}</h2>
+                        <p>Members No: <b>|</b> updated daily <br />
+                            <b>About chama:</b><br /> {{chama.summary}} </p>
+
+                        <button class="btn btn-outline-dark" type="button"><a href="/view?name={{chama.chama_name}}&{% for result in result %}id={{result.id}} {% endfor %}">View</a></button>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+                <p>
+                    Dear {% for result in result %} {{result.name}},
+                    We noticed that you haven't joined any Chamas yet. But don't worry, 
+                    you can change that and start enjoying the benefits of group savings! 
+                    Simply click on the "Chamas" button to explore the various Chamas created 
+                    by others. By joining a Chama, you'll be on the path to saving together with a 
+                    supportive community. Take advantage of this opportunity and unlock the potential 
+                    for financial growth and shared goals. Join a Chama today and embark on a rewarding 
+                    journey of collective saving!
+
+            <br /><br />Best regards,<br />
+            chamaZetu Team
+                </p>
+                <button class="btn btn-outline-info" type="button"> <a href="/chamas?id={{result.id}}">chamas</a></button>{% endfor %}
+        {% endif %}
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

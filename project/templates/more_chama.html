@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>more on {{chama_name}}</title>
+    <style>
+        .circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .circle img {
+            width: 100%;
+            height: auto;
+        }
+        .horizontal-line {
+            border-top: 2px solid #270101;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center mt-2 mb-4">{{chama_name}} <b>|</b> {{chama.manager}}</h3>
+        <div class="horizontal-line"></div>
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-md-5" style="margin-bottom: 16px;">
+                <div class="circle">
+                    <img src="/static/afri.jpg" alt="manager image" class="img-fluid">
+                </div>
+            </div>
+            
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>{{chama.manager}}</h2>
+                        <p>{{chama.summary}}</p>
+                    </div>
+                </div>
+        </div>
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-md-6" style="margin-bottom: 16px;">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>Description</h2>
+                    <div class="horizontal-line"></div>
+                    <p>{% for line in chama.description.split("\n") %} <br /><br />{{line}} {% endfor %} </p>
+                </div>
+            </div>
+
+            <div class="col-md-5" style="margin-bottom: 16px;">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>Requirements</h2>
+                    <div class="horizontal-line"></div>
+                    <p>{% for line in  chama.requirements.split(".") %} <br /><br/>{{line}}. {% endfor %} </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-11" style="margin-bottom: 16px;">
+            <div class="h-100 p-5 text-bg-dark rounded-4">
+                <h3 class="text-center">contact</h3>
+                <p>
+                Whatsapp: 072000000000<br />
+                Telegram: 072000000000<br />
+                email: manager@letsgobig.com<br />
+            </p>
+
+            {% if member_id %}
+                <div class="position-relative">
+                    <div class="position-absolute bottom-0 end-0">
+                        <button type="button" class="btn btn-outline-info"><a href="/join_chama?id={{member_id}}&name={{chama.chama_name}}">Join Us</a></button>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

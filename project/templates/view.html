@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "bootstrap.html" %}
+    <title>view chama</title>
+</head>
+<body>
+    {% include "view-nav.html" %}
+    <div class="container">
+        <h2 class="text-center mt-2 mb-4">{{name}}</h2>
+        {% if id %}
+        <div class="position-relative">
+            <div class="position-absolute top-0 end-0">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">deposit from m-pesa</button>
+            </div><br />
+            {% endif %}
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fs-5" id="exampleModalLabel">Deposit from m-pesa</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        <div class="modal-body">
+                            <form action="/deposit" method="post">
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="number" class="form-control" name="amount" id="amount" aria-describedby="Help">
+                                    <div id="Help" class="form-text">Amount to deposit</div>
+                                </div>
+                
+                                <div class="mb-3">
+                                    <label for="phone_no" class="form-label">phone_no</label>
+                                    <input type="number" class="form-control" name="phone_no" id="phone_no" aria-describedby="Help">
+                                    <div id="Help" class="form-text">Phone number to deposit from</div>
+                                </div>
+                
+                                <div class="mb-3 visually-hidden">
+                                    <label for="chama_name" class="form-label">Chama Name</label>
+                                    <input type="text" class="form-control" name="chama_name" id="chama_name" value="{{name}}" aria-describedby="Help" readonly>
+                                    <div id="Help" class="form-text">Name of the chama</div>
+                                </div>
+                
+                                <div class="mb-3 visually-hidden">
+                                    <label for="id" class="form-label">id</label>
+                                    <input type="number" class="form-control" name="id" id="id" value="{{id}}" aria-describedby="Help" readonly>
+                                    <div id="Help" class="form-text">id of the member</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"> 
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>             
+                                <button type="submit" class="btn btn-primary">Deposit</button>
+                            </div>
+                            </form>
+                    </div>
+                </div>
+        </div>
+        <br />
+            {% include "table.html" %}
+    </div>
+
+</body>
+</html>
