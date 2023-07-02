@@ -1,0 +1,14 @@
+blinker
+click
+colorama
+Flask
+Flask-Login
+Flask-SQLAlchemy
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+PyMySQL
+python-dotenv
+SQLAlchemy
+Werkzeug
